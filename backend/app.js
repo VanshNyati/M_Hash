@@ -16,11 +16,11 @@ app.use(express.json());
 app.use('/api', userRoutes);
 
 // Serve the static files from the frontend build
-app.use(express.static(path.join(__dirname, 'frontend')));
+app.use(express.static(path.join(__dirname, 'frontend/dist')));
 
 // Handle any other routes and send them to the frontend's index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+  res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
